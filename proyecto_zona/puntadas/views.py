@@ -3,6 +3,10 @@ from django.contrib import messages
 from .forms import EmpleadoForm
 from puntadas.models import Empleado, Registro
 
+def inicio(request):
+    empleado = Empleado.objects.all()
+    return render(request,'lista.html',{'empleado':empleado})
+
 def puntada_nueva(request):
     if request.method == "POST":
             formulario = EmpleadoForm(request.POST)
@@ -14,4 +18,4 @@ def puntada_nueva(request):
                 messages.add_message(request, messages.SUCCESS, 'Pelicula Guardada Exitosamente')
     else:
         formulario = EmpleadoForm()
-    return render(request, 'puntadas/puntada_editar.html', {'formulario': formulario})
+    return render(request, 'puntada_edit.html', {'formulario': formulario})

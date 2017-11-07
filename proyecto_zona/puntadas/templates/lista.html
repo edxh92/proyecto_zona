@@ -1,0 +1,30 @@
+{% extends 'Base.html' %}
+
+{% block content %}
+<center>
+  <h2>
+    Listado de puntadas
+  </h2>
+</center>
+  <div class="col-lg-12">
+    <table class="table">
+      <thead>
+        <th>No.</th>
+        <th>Empleado</th>
+        <th>Total puntadas</th>
+        <th>Total de pago</th>
+        <th>Acciones</th>
+      </thead>
+      <tbody>
+        {% for empleado in empleado %}
+          <tr>
+            <td>{{empleado.pk}}</td>
+            <td>{{empleado.nombre}}</td>
+            <td>{{empleado.pk}}</td>
+            <td>{{empleado.pk}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
