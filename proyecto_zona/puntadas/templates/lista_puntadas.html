@@ -1,0 +1,42 @@
+{% extends 'Base.html' %}
+
+{% block content %}
+<center>
+  <h2>
+    Listado de puntadas
+  </h2>
+</center>
+  <div class="col-lg-12">
+    <div class="btn pull-right">
+      <a href="{% url 'puntada_new' %}" class="btn btn-success">
+        Nueva puntada
+      </a>
+    </div>
+    <table class="table">
+      <thead>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Status</th>
+        <th>Acciones</th>
+      </thead>
+      <tbody>
+        {% for puntada in puntada %}
+          <tr>
+            <td>{{puntada.pk}}</td>
+            <!-- <td>{{empleado.nombre}}</td> -->
+            <td>{{puntada.descripcion}}</td>
+            <td>{{puntada.costo_puntada}}</td>
+            <td>{{puntada.status}}</td>
+            <td>
+              <a href="{% url 'puntadas_remove' pk=puntada.pk %}" class="btn btn-danger">
+                Eliminar
+              </a>
+                <a href="#" class="btn btn-success">Editar</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

@@ -11,3 +11,8 @@ def __init__ (self, *args, **kwargs):
     self.fields["puntadas"].widget = forms.widgets.CheckboxSelectMultiple()
     self.fields["puntadas"].help_text = "Ingrese los Actores que participaron en la película"
     self.fields["puntadas"].queryset = Puntada.objects.all()
+
+class PuntadaForm(forms.ModelForm):
+    class Meta:
+        model=Puntada
+        fields=('descripcion','costo_puntada','status')

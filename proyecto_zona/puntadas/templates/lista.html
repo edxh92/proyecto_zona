@@ -16,12 +16,20 @@
         <th>Acciones</th>
       </thead>
       <tbody>
-        {% for empleado in empleado %}
+        {% for variable in variable %}
           <tr>
-            <td>{{empleado.pk}}</td>
-            <td>{{empleado.nombre}}</td>
-            <td>{{empleado.pk}}</td>
-            <td>{{empleado.pk}}</td>
+            <td>{{variable}}</td>
+            <!-- <td>{{empleado.nombre}}</td> -->
+            <td>{{variable}}</td>
+            <td>{{variable}}</td>
+            <td>
+              <button class="btn btn-danger">
+                Eliminar
+              </button>
+              <button class="btn btn-success">
+                Editar
+              </button>
+            </td>
           </tr>
         {% endfor %}
       </tbody>
