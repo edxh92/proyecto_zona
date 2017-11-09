@@ -7,5 +7,7 @@ urlpatterns = [
     url(r'^lista_puntadas$', views.lista_puntadas, name='lista_puntadas'),
     url(r'^puntadas/new/$', views.puntada_new, name='puntada_new'),
     url(r'^puntadas/(?P<pk>\d+)/remove/$', views.puntadas_remove, name='puntadas_remove'),
+    url(r'^puntadas/(?P<pk>\d+)/detalle_puntada/$', views.detalle_puntada, name='detalle_puntada'),
+
 
     ]

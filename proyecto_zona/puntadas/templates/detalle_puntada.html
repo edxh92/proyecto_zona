@@ -1,0 +1,11 @@
+{% extends 'Base.html' %}
+
+{% block content %}
+        <h1>
+          {{registro.nombre}}
+        </h1>
+        {% for variable in variable%}
+        <h2>{{variable.descripcion}}</h2>
+        <h2>{{variable.costo_puntada}}</h2>
+        {% endfor %}
+{% endblock %}

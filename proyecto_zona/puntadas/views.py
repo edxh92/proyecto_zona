@@ -6,11 +6,7 @@ from .forms import EmpleadoForm, PuntadaForm
 from puntadas.models import Empleado, Registro, Puntada
 
 def inicio(request):
-    empleado = Registro.objects.filter(empleado_id=2)
-    variable=[]
-    for empleado in empleado:
-        puntadas=Puntada.objects.filter(pk=empleado.puntada_id)
-        variable.append(puntadas)
+    variable = Empleado.objects.all()
     return render(request,'lista.html',{'variable':variable})
 
 @login_required
@@ -47,3 +43,12 @@ def puntadas_remove(request, pk):
     puntda = get_object_or_404(Puntada, pk=pk)
     puntda.delete()
     return redirect('/')
+
+def detalle_puntada(request,pk):
+    registro=get_object_or_404(Empleado, pk=pk)
+    variable=[]
+    filto_puntadas=Registro.objects.filter(empleado_id=pk)
+    for filto_puntadas in filto_puntadas:
+        nfiltro=Puntada.objects.get(pk=filto_puntadas.puntada_id)
+        variable.append(nfiltro)
+    return render(request,'detalle_puntada.html',{'variable':variable,'registro':registro})

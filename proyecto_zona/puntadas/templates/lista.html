@@ -11,21 +11,18 @@
       <thead>
         <th>No.</th>
         <th>Empleado</th>
-        <th>Total puntadas</th>
-        <th>Total de pago</th>
+        <th>Fecha nacimiento</th>
         <th>Acciones</th>
       </thead>
       <tbody>
         {% for variable in variable %}
           <tr>
-            <td>{{variable}}</td>
+            <td>{{variable.pk}}</td>
             <!-- <td>{{empleado.nombre}}</td> -->
-            <td>{{variable}}</td>
-            <td>{{variable}}</td>
+            <td>{{variable.nombre}}</td>
+            <td>{{variable.fecha_nacimiento}}</td>
             <td>
-              <button class="btn btn-danger">
-                Eliminar
-              </button>
+              <a href="{% url 'detalle_puntada' pk=variable.pk %}" class="btn btn-danger">Detalle</a>
               <button class="btn btn-success">
                 Editar
               </button>
